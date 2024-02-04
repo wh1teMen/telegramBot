@@ -1,0 +1,23 @@
+﻿
+@model List<MessageModel>
+
+<style>
+    .window
+    {
+        border:2px solid black;
+        width:500px;
+        height:400px;
+    }
+</style>
+
+
+ 
+<form asp-controller="Bot" asp-action="But"  asp-antiforgery="true" >   
+   
+    <div>
+        <input  name ="mes" required />
+        <input type="submit" value="Ответить" />
+    </div>
+    </form> 
+
+    
