@@ -26,7 +26,7 @@ namespace TagHelpers_andApiTelegram.Controllers.Commands
                 
                 var listUsers = BotController.db.RegistrBDs.ToList();
                 string users = string.Empty;
-                listUsers.ForEach(x => users += $"Имя:{x.Name} {x.NumberPhone}\n");
+                listUsers.ForEach(x => users += $"Имя:{x.Name} Телефлн:{x.NumberPhone}\n");
                 await Client.SendTextMessageAsync(chatId, $"Зарегестрированные пользователи:\n{users}");
             }
             catch{}
