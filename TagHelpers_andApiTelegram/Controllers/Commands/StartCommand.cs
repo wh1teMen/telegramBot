@@ -22,7 +22,6 @@ namespace TagHelpers_andApiTelegram.Controllers.Commands
                 CommandExecutor.commands.ForEach(x => com += x.Name + "\n");
                 await Client.SendStickerAsync(
                 chatId: chatId,
-
                  sticker: InputFile.FromUri("https://github.com/TelegramBots/book/raw/master/src/docs/sticker-dali.webp"));
                 await Client.SendTextMessageAsync(chatId, com);
                 return;

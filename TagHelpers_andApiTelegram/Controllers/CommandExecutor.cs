@@ -17,7 +17,9 @@ namespace TagHelpers_andApiTelegram.Controllers
                 new RegisterCommand(this),
                 new HistoryCommand(),
                 new MediaCommand(),/// Здесь добавляем наши команды
-                new GetRegistrUsers()
+                new GetRegistrUsers(),
+                new ClearHistory()
+
 
             };
         }

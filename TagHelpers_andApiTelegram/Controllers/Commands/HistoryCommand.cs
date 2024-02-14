@@ -7,8 +7,6 @@ namespace TagHelpers_andApiTelegram.Controllers.Commands
     {
 
         public TelegramBotClient Client => Bot.GetTelegramBot();
-
-
         public string Name => "/history";
 
         public async Task ExecuteAsync(Update update)

@@ -7,11 +7,9 @@ namespace TagHelpers_andApiTelegram.Controllers.Commands
     public class RegisterCommand : ICommand, IListener
     {
 
-        public static ChatId idChat;
-        public static Update refUpdate;
+        
         public TelegramBotClient Client => Bot.GetTelegramBot();
         public string Name => "/registration";
-
         public CommandExecutor Exceutor { get; }
         private RegistrBD reg=new RegistrBD();
         public RegisterCommand(CommandExecutor exceutor)
