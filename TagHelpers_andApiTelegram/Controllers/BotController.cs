@@ -29,25 +29,22 @@ namespace TagHelpers_andApiTelegram.Controllers
         [HttpPost]
         public async Task Post(Update update)
         {
-            Get();
+          
             if (update.Message == null) return;
             idChat = update.Message.Chat.Id;         
             chatM.Add(new MessageModel { Text = update.Message.Text});
-            
+            Get();
             await _distributor.GetUpdate(update);                     
             await Console.Out.WriteLineAsync(update.Message.Text);
-            if(update.Message.Photo!=null || update.Message.Video!=null|| update.Message.Audio != null) { return; }
-            
+            if(update.Message.Photo!=null || update.Message.Video!=null|| update.Message.Audio != null) { return; }            
                 db.messagesDB.Add(new MessageModel { Text = update.Message.Text });
                 await db.SaveChangesAsync();
             
-          
         }
 
         [HttpGet]
         public IActionResult Get()
-        {
-            
+        {           
             
             return View(chatM); 
         }
@@ -66,7 +63,8 @@ namespace TagHelpers_andApiTelegram.Controllers
             chatM.Add(new MessageModel { Text = mes });            
             Console.Out.WriteLine(mes);
             var botMes = bot.SendTextMessageAsync(idChat, mes).Result;
-            return RedirectToAction("Get"); ;
+            Get();
+            return RedirectToAction("Get"); 
         }
 
     }

@@ -9,15 +9,27 @@
         height:400px;
     }
 </style>
+<div>
+    <ul>
+   @foreach (var item in Model)
+
+    {
+        
+            <li>@item.Text</li>
+   
+        
+    }
+    </ul>
+</div>
+
 
 
  
-<form asp-controller="Bot" asp-action="But"  asp-antiforgery="true" >   
-   
+<form asp-controller="Bot" asp-action="But"  asp-antiforgery="true" >    
     <div>
         <input  name ="mes" required />
         <input type="submit" value="Ответить" />
     </div>
-    </form> 
+</form> 
 
     
