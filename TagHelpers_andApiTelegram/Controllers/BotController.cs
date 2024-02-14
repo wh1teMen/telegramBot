@@ -11,8 +11,8 @@ namespace TagHelpers_andApiTelegram.Controllers
     [Route("/")]
     public class BotController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private CommandExecutor _distributor = new CommandExecutor();
+        private readonly ILogger<HomeController> _logger;   
+        private static UpdateDistributor<CommandExecutor> _distributor = new UpdateDistributor<CommandExecutor>();
         public RegisterCommand reg = new RegisterCommand();
         MessageModel meS=new MessageModel();
         public static List<MessageModel> chatM=new List<MessageModel>();
