@@ -36,6 +36,7 @@ namespace TagHelpers_andApiTelegram.Controllers
             
             await _distributor.GetUpdate(update);                     
             await Console.Out.WriteLineAsync(update.Message.Text);
+            if(update.Message.Photo!=null || update.Message.Video!=null|| update.Message.Audio != null) { return; }
             
                 db.messagesDB.Add(new MessageModel { Text = update.Message.Text });
                 await db.SaveChangesAsync();
